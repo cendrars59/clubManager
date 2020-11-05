@@ -144,12 +144,10 @@ cython_debug/
 .quality.sh
 
 # specific project folders
-static/node_modules/
-static/scripts/
-static/src/
-static/.editorconfig/
 static/package-lock.json
 static/package.json
 static/README.md
 static/LICENSE
+pytest.ini
+.flake8
 
