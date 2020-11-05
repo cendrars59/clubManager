@@ -144,10 +144,6 @@ cython_debug/
 .quality.sh
 
 # specific project folders
-static/package-lock.json
-static/package.json
-static/README.md
-static/LICENSE
 pytest.ini
 .flake8
 
