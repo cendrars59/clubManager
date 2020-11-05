@@ -12,7 +12,6 @@ class TestUrls(SimpleTestCase):
         print(resolve(url))
         self.assertEqual(resolve(url).func, home)
 
-
     def test_home_url_is_found(self):
         # Issue a GET request.
         response = self.client.get('/')
@@ -32,4 +31,3 @@ class TestUrls(SimpleTestCase):
 
         # Check that the response is 200 OK.
         self.assertEqual(response.status_code, 200)
-  
