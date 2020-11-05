@@ -1,17 +1,17 @@
 // Base styling for the navbar
 #mainNav {
     box-shadow: $box-shadow;
-    background-color: $white;
+    background-color: $roct_red;
     transition: background-color 0.2s ease;
     .navbar-brand {
         font-family: $font-family-sans-serif;
         font-weight: $font-weight-bold;
-        color: $gray-900;
+        color: $roct_red;
     }
     .navbar-nav {
         .nav-item {
             .nav-link {
-                color: $gray-600;
+                color: $roct_red;
                 font-family: $font-family-sans-serif;
                 font-weight: $font-weight-bold;
                 font-size: 0.9rem;
@@ -29,20 +29,20 @@
     @include media-breakpoint-up(lg) {
         // Base styling for the navbar - screen sizes greater than the large breakpoint
         box-shadow: none;
-        background-color: transparent;
+        background-color: $white;
         .navbar-brand {
-            color: fade-out($white, 0.3);
+            color: fade-out($roct_red, 0.3);
             &:hover {
-                color: $white;
+                color: $primary;
             }
         }
         .navbar-nav {
             .nav-item {
                 .nav-link {
-                    color: fade-out($white, 0.3);
+                    color: fade-out($roct_red, 0.3);
                     padding: 0 1rem;
                     &:hover {
-                        color: $white;
+                        color: $primary;
                     }
                 }
                 &:last-child {
@@ -55,9 +55,9 @@
         // Navbar styling applied when the page is scrolled
         &.navbar-scrolled {
             box-shadow: $box-shadow;
-            background-color: $white;
+            background-color: $roct_red;
             .navbar-brand {
-                color: $gray-900;
+                color: $white;
                 &:hover {
                     color: $primary;
                 }
@@ -65,7 +65,7 @@
             .navbar-nav {
                 .nav-item {
                     .nav-link {
-                        color: $gray-900;
+                        color: $white;
                         &:hover {
                             color: $primary;
                         }
