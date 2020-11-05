@@ -1,0 +1,14 @@
+// Custom utilities for this theme
+
+.text-white-75 {
+    color: fade-out($white, 0.25);
+}
+
+.text-red-75 {
+    color: fade-out($roct_red, 0.25);
+}
+
+
+.border-red {
+    border: solid 0.3em fade-out($roct_red, 0.3);;
+}
