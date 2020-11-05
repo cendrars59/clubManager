@@ -1,0 +1,7 @@
+.pytest_cache/
+.quality.sh
+pytest.ini
+.vscode/
+static/src/
+static/scripts/
+static/node_modules/
