@@ -50,8 +50,11 @@
         {% endblock masthead%}     
         <!-- Footer-->
         {%block footer %}
-        <footer class="bg-light py-5">
-            <div class="container"><div class="small text-center text-muted">Copyright © 2020 - Start Bootstrap</div></div>
+        <footer class="bg-roct-red py-5">
+            <div class="container row col-sm-12 offset-sm-1">
+                <div class="col-sm-4 offset-sm-2"><a class="nav-link text-white" href="{% url 'mentions' %}" id="legal-link">Mentions légales</a></div>
+                <div class="col-sm-4"><a class="nav-link text-white" href="https://www.rugby-tourcoing.com/" id="official-link">Site officiel du ROCT</a></div>
+            </div>
         </footer>
         {% endblock footer %}
         <!-- Bootstrap core JS-->

@@ -10154,3 +10154,7 @@ header.masthead h1 {
 .border-red {
   border: solid 0.3em rgba(255, 0, 0, 0.7);
 }
+
+.bg-roct-red {
+  background-color: #ff0000;
+}

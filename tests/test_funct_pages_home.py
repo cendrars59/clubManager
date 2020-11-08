@@ -53,9 +53,17 @@ class TestHomePage(StaticLiveServerTestCase):
         time.sleep(5)
 
     def test_redirection_to_mentions(self):
-        mentions_url = self.live_server_url + reverse("pages-mentions")
+        mentions_url = self.live_server_url + reverse("mentions")
         self.driver.get(self.live_server_url)
         time.sleep(5)
         self.driver.find_element_by_id("legal-link").click()
         self.assertEqual(self.driver.current_url, mentions_url)
+        time.sleep(5)
+
+    def test_redirection_to_official(self):
+        official = "https://www.rugby-tourcoing.com/"
+        self.driver.get(self.live_server_url)
+        time.sleep(5)
+        self.driver.find_element_by_id("official-link").click()
+        self.assertEqual(self.driver.current_url, official)
         time.sleep(5)
