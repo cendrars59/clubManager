@@ -5,6 +5,13 @@ pytest.ini
 static/src/
 static/scripts/
 static/node_modules/
-debug.log
+*.log
 .coverage
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
 
