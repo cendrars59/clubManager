@@ -31,6 +31,8 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'pages.apps.PagesConfig',
+    'users.apps.UsersConfig',
+    'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -128,3 +130,13 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
+
+
+# Applying Bootstrap 4 on crispy templates
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+# Redirecting to the home after login
+LOGIN_REDIRECT_URL = 'home'
+
+# redirecting user when is trying to access page without being authenticated
+LOGIN_URL = 'login'

@@ -44,21 +44,29 @@ class TestHomePage(StaticLiveServerTestCase):
         title = self.driver.find_element_by_id("home-title").text
         self.assertEqual(title, 'PROCHAINES SCÉANCES')
 
-    def test_redirection_to_logout(self):
-        mentions_url = self.live_server_url + reverse("logout")
+    def test_redirection_to_login(self):
+        login_url = self.live_server_url + reverse("login")
         self.driver.get(self.live_server_url)
-        time.sleep(5)
-        self.driver.find_element_by_id("selections-logout").click()
-        self.assertEqual(self.driver.current_url, mentions_url)
-        time.sleep(5)
+        time.sleep(2)
+        self.driver.find_element_by_id("login-link").click()
+        time.sleep(2)
+        self.assertEqual(self.driver.current_url, login_url)
+
+    def test_redirection_to_register(self):
+        login_url = self.live_server_url + reverse("register")
+        self.driver.get(self.live_server_url)
+        time.sleep(2)
+        self.driver.find_element_by_id("register-link").click()
+        time.sleep(2)
+        self.assertEqual(self.driver.current_url, login_url)
 
     def test_redirection_to_mentions(self):
         mentions_url = self.live_server_url + reverse("mentions")
         self.driver.get(self.live_server_url)
-        time.sleep(5)
+        time.sleep(2)
         self.driver.find_element_by_id("legal-link").click()
         self.assertEqual(self.driver.current_url, mentions_url)
-        time.sleep(5)
+        time.sleep(2)
 
     def test_redirection_to_official(self):
         official = "https://www.rugby-tourcoing.com/"

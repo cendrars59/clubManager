@@ -35,11 +35,17 @@
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto my-2 my-lg-0">
+                        {% if user.is_authenticated %}
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">Ateliers</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Scéance</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Plannifier</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Effectifs</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Session</a></li>
+                        <li id="profile-link"class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'profile' %}">Profile</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'logout' %}">Deconnecter</a></li>
+                        {% else %}
+                        <li id="register-link" class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'register' %}">Enregister</a></li>
+                        <li id="login-link" class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'login' %}">Connecter</a></li>
+                        {% endif %}
                     </ul>
                 </div>
             </div>
@@ -47,7 +53,7 @@
         {%endblock nav%}  
         <!-- Masthead-->
         {% block masthead %}
-        {% endblock masthead%}     
+        {% endblock masthead %}     
         <!-- Footer-->
         {%block footer %}
         <footer class="bg-roct-red py-5">
