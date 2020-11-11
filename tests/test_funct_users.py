@@ -33,15 +33,11 @@ class TestRegisterPage(StaticLiveServerTestCase):
         self.driver.get(self.live_server_url + reverse("register"))
         time.sleep(1)
         self.driver.find_element_by_name("username").send_keys("elvis")
-        time.sleep(1)
         self.driver.find_element_by_name("email").send_keys(
             "elvis@isnotdead.com"
         )
-        time.sleep(1)
         self.driver.find_element_by_name("password1").send_keys("Dickrivers76")
-        time.sleep(1)
         self.driver.find_element_by_name("password2").send_keys("Dickrivers76")
-        time.sleep(1)
         self.driver.find_element_by_id("btn-register").click()
         time.sleep(5)
         redirection_url = self.live_server_url + reverse("login")
@@ -53,11 +49,8 @@ class TestRegisterPage(StaticLiveServerTestCase):
         self.driver.find_element_by_name("email").send_keys(
             "jojo@labuvette.com"
         )
-        time.sleep(1)
         self.driver.find_element_by_name("password1").send_keys("Dickrivers76")
-        time.sleep(1)
         self.driver.find_element_by_name("password2").send_keys("Dickrivers76")
-        time.sleep(1)
         self.driver.find_element_by_id("btn-register").click()
         time.sleep(5)
         self.assertEqual(
@@ -68,11 +61,8 @@ class TestRegisterPage(StaticLiveServerTestCase):
         self.driver.get(self.live_server_url + reverse("register"))
         time.sleep(1)
         self.driver.find_element_by_name("username").send_keys("jojo")
-        time.sleep(1)
         self.driver.find_element_by_name("password1").send_keys("Dickrivers76")
-        time.sleep(1)
         self.driver.find_element_by_name("password2").send_keys("Dickrivers76")
-        time.sleep(1)
         self.driver.find_element_by_id("btn-register").click()
         time.sleep(5)
         self.assertEqual(
@@ -182,6 +172,14 @@ class TestUserInformationPage(StaticLiveServerTestCase):
         time.sleep(5)
         redirection_url = self.live_server_url + reverse("profile")
         self.assertEqual(self.driver.current_url, redirection_url)
+        first_name = self.driver.find_element_by_name("first_name").get_attribute('value')
+        self.assertEqual(first_name, "")
+        last_name = self.driver.find_element_by_name("last_name").get_attribute('value')
+        self.assertEqual(last_name, "")
+        email = self.driver.find_element_by_name("email").get_attribute('value')
+        self.assertEqual(email, "robert@isnotdead.com")
+        mobile_phone = self.driver.find_element_by_name("mobile_phone").get_attribute('value')
+        self.assertEqual(mobile_phone, "")
 
 
 class TestUserInformationUpdatePage(StaticLiveServerTestCase):
@@ -204,26 +202,48 @@ class TestUserInformationUpdatePage(StaticLiveServerTestCase):
     def test_valid_user_products(self):
         self.driver.get(self.live_server_url + reverse("register"))
         time.sleep(1)
+        # Register a new user
         self.driver.find_element_by_name("username").send_keys("brenda")
-        time.sleep(1)
         self.driver.find_element_by_name("email").send_keys(
             "brendat@isnotdead.com"
         )
-        time.sleep(1)
         self.driver.find_element_by_name("password1").send_keys("Dickrivers76")
-        time.sleep(1)
         self.driver.find_element_by_name("password2").send_keys("Dickrivers76")
-        time.sleep(1)
         self.driver.find_element_by_id("btn-register").click()
         time.sleep(5)
+        # New user login
         redirection_url = self.live_server_url + reverse("login")
         self.assertEqual(self.driver.current_url, redirection_url)
         self.driver.find_element_by_name("username").send_keys("brenda")
-        time.sleep(1)
         self.driver.find_element_by_name("password").send_keys("Dickrivers76")
         self.driver.find_element_by_id("btn-login").click()
         time.sleep(5)
-        self.driver.find_element_by_id("selections-link").click()
+        # New user modifying profile page
+        self.driver.find_element_by_id("profile-link").click()
         time.sleep(5)
-        redirection_url = self.live_server_url + reverse("user_search")
+        redirection_url = self.live_server_url + reverse("profile")
         self.assertEqual(self.driver.current_url, redirection_url)
+        # Inserting new data and save
+        time.sleep(1)
+        self.driver.find_element_by_name("first_name").clear()
+        self.driver.find_element_by_name("first_name").send_keys("Jennyfer")
+        self.driver.find_element_by_name("last_name").clear()
+        self.driver.find_element_by_name("last_name").send_keys("Heart")
+        self.driver.find_element_by_name("email").clear()
+        self.driver.find_element_by_name("email").send_keys(
+            "Jennyfer@isnotdead.com"
+        )
+        self.driver.find_element_by_name("mobile_phone").clear()
+        self.driver.find_element_by_name("mobile_phone").send_keys(
+            "0672331433"
+        )
+        self.driver.find_element_by_id("btn-register").click()
+        time.sleep(1)
+        first_name = self.driver.find_element_by_name("first_name").get_attribute('value')
+        self.assertEqual(first_name, "Jennyfer")
+        last_name = self.driver.find_element_by_name("last_name").get_attribute('value')
+        self.assertEqual(last_name, "Heart")
+        email = self.driver.find_element_by_name("email").get_attribute('value')
+        self.assertEqual(email, "Jennyfer@isnotdead.com")
+        mobile_phone = self.driver.find_element_by_name("mobile_phone").get_attribute('value')
+        self.assertEqual(mobile_phone, "0672331433")

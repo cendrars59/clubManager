@@ -131,6 +131,10 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 
+# defining the path to store media at the project root
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
 
 # Applying Bootstrap 4 on crispy templates
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

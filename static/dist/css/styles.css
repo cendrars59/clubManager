@@ -10158,3 +10158,19 @@ header.masthead h1 {
 .bg-roct-red {
   background-color: #ff0000;
 }
+
+.img-profile-pic {
+  height: 15vh;
+  width: 10vw;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto;
+}
+
+.div-profile-pic {
+  height: 15vh;
+}
+
+#profile-main-frame {
+  height: 15vh;
+}
