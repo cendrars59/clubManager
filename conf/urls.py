@@ -24,10 +24,12 @@ from users import views as users_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('pages.urls')),
+    path('training/', include('training.urls')),
     path('profile/', users_views.profile, name='profile'),
     path('enregistrer/', users_views.register, name='register'),
     path('connecter/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
     path('quitter/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
+
 ]
 
 if settings.DEBUG:

@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'pages.apps.PagesConfig',
     'users.apps.UsersConfig',
+    'training.apps.TrainingConfig',
     'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
