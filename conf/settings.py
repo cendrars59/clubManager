@@ -142,6 +142,16 @@ MEDIA_URL = '/media/'
 CKEDITOR_UPLOAD_PATH = 'uploads/'
 
 
+# Defining CKEDITOR properties
+CKEDITOR_CONFIGS = {
+    'default': {
+        'width': 'auto'
+
+
+    }
+}
+
+
 # Applying Bootstrap 4 on crispy templates
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
