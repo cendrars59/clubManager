@@ -12,7 +12,8 @@
                     <form method="POST" enctype="multipart/form-data">
                         {% csrf_token %}
                         <fieldset class="form-group text-red-75">
-                            <legend class="border-bottom mb-4 text-muted-homemade">Creer un nouvel exo</legend>
+                            <legend class="border-bottom mb-4 text-muted-homemade">Nouvelle fiche exercice</legend>
+                            {{ form.media }}
                             {{ form|crispy }}
                         </fieldset>
                         <div class="form-group">

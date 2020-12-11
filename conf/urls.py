@@ -19,10 +19,12 @@ from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from django.urls import include, path
 
+from training import views
 from users import views as users_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('ckeditor/', include('ckeditor_uploader.urls')),
     path('', include('pages.urls')),
     path('training/', include('training.urls')),
     path('profile/', users_views.profile, name='profile'),

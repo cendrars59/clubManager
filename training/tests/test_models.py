@@ -18,8 +18,7 @@ class PracticeModelTests(TestCase):
         self.practice = Practice.objects.create(
             title='Test Model Title',
             author=self.user,
-            description='description model',
-            material='material required for practice'
+            description='description model'
 
         )
 
@@ -28,7 +27,3 @@ class PracticeModelTests(TestCase):
         self.assertEqual(f'{self.practice.title}', 'Test Model Title')
         self.assertEqual(f'{self.practice.author}', 'elvis')
         self.assertEqual(f'{self.practice.description}', 'description model')
-        self.assertEqual(f'{self.practice.material}', 'material required for practice')
-        self.assertEqual(f'{self.practice.photo1}', 'default_practice.png')
-        self.assertEqual(f'{self.practice.photo2}', 'default_practice.png')
-        self.assertEqual(f'{self.practice.photo3}', 'default_practice.png')

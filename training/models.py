@@ -1,3 +1,4 @@
+from ckeditor_uploader.fields import RichTextUploadingField
 from django.contrib import auth
 from django.contrib.auth.models import User
 from django.db import models
@@ -8,32 +9,23 @@ from PIL import Image
 # Create your models here.
 
 
+class Category(models.Model):
+    title = models.CharField(verbose_name='Titre', max_length=255)
+    description = RichTextUploadingField(verbose_name='Description', blank=True, null=True)
+    active = models.BooleanField(default=True)
+    date_posted = models.DateTimeField(default=timezone.now)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+
+
 class Practice(models.Model):
 
     title = models.CharField(verbose_name='Titre', max_length=255)
-    description = models.TextField(verbose_name='Description', max_length=1024)
-    material = models.CharField(verbose_name='Liste de materiel', max_length=1024, blank=True, null=True)
+    description = RichTextUploadingField(verbose_name='Description', blank=True, null=True)
     version = models.IntegerField(default=1)
     active = models.BooleanField(default=False)
     date_posted = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    photo1 = models.ImageField(verbose_name='Illustration principale',
-                               upload_to='practices_pics/', default='default_practice.png', blank=True)
-    photo2 = models.ImageField(verbose_name='Illustration 2', upload_to='practices_pics/',
-                               default='default_practice.png', blank=True)
-    photo3 = models.ImageField(verbose_name='Illustration 3', upload_to='practices_pics/',
-                               default='default_practice.png', blank=True,)
-
-    def save(self, *args, **kwargs):
-
-        super().save(*args, **kwargs)
-
-        img = Image.open(self.photo1.path)
-
-        if img.height > 300 or img.width > 300:
-            output_size = (300, 300)
-            img.thumbnail(output_size)
-            img.save(self.photo1.path)
+    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
 
     class Meta:
         verbose_name = "practice"

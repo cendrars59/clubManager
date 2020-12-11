@@ -22,7 +22,6 @@ class PracticeViewTests(TestCase):
             title='Test Model Title',
             author=self.user,
             description='description model',
-            material='material required for practice'
 
         )
 

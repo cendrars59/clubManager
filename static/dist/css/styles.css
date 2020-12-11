@@ -10174,3 +10174,12 @@ header.masthead h1 {
 #profile-main-frame {
   height: 15vh;
 }
+
+.img-training-pic {
+  height: 300px;
+  width: 300px;
+}
+
+.div-description {
+  height: 30vh;
+}

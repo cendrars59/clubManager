@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'ckeditor',
+    'ckeditor_uploader',  # Application to upload when using ckeditor
 ]
 
 MIDDLEWARE = [
@@ -135,6 +137,9 @@ STATICFILES_DIRS = [
 # defining the path to store media at the project root
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+# Defining the path to upload files managed by CKEDITOR -> Related to ckeditor uploader in apps
+CKEDITOR_UPLOAD_PATH = 'uploads/'
 
 
 # Applying Bootstrap 4 on crispy templates

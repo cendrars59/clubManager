@@ -25,12 +25,12 @@ class PracticeListView(ListView):
 
 class PracticeDetailView(DetailView):
     model = Practice
-    fields = ['title', 'description', 'material', 'photo1']
+    fields = ['title', 'description']
 
 
 class PracticeCreateView(LoginRequiredMixin, CreateView):
     model = Practice
-    fields = ['title', 'description', 'material', 'photo1', 'photo2', 'photo3']
+    fields = ['title', 'description']
 
     def form_valid(self, form):
         """Overridding the form valid saving in order to take the current
