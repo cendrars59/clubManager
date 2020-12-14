@@ -141,6 +141,14 @@ MEDIA_URL = '/media/'
 # Defining the path to upload files managed by CKEDITOR -> Related to ckeditor uploader in apps
 CKEDITOR_UPLOAD_PATH = 'uploads/'
 
+CKEDITOR_CONFIGS = {
+    'default': {
+        'height': '65%',
+        'width': '138%',
+        'toolbarCanCollapse': False,
+    },
+}
+
 
 # Applying Bootstrap 4 on crispy templates
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

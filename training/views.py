@@ -16,7 +16,7 @@ def pratices(request):
     return render(request, 'training/practices-list.html', context)
 
 
-class PracticeListView(ListView):
+class PracticesListView(ListView):
     model = Practice
     template_name = 'training/practice_list.html'  # Instead of <app>/<model>_<viewtype>.html
     context_object_name = 'practices'  # Instead of using standard name
