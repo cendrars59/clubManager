@@ -8,6 +8,9 @@
     color: fade-out($roct_red, 0.25);
 }
 
+.text-grey-75 {
+    color: fade-out($roct_grey, 0.25);
+}
 
 .border-red {
     border: solid 0.3em fade-out($roct_red, 0.3);

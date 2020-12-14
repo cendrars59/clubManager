@@ -7,20 +7,59 @@
 <header class="masthead" style="background-image:None ;">
     <div class="container h-100 mt-4">
         <div class="row h-100 align-items-center justify-content-center text-center">
-            <div class="col-lg-12 pt-1 align-self-baseline">
+            <div class="col-sm-12 pt-1 align-self-baseline">
                 <h2 class="text-red-75 font-weight-light mb-5" id="title-list-practices" >
                     Liste d'exercices
                 </h2>
             </div>
-            <div class="col-lg-12 align-self-baseline">
-                <ul>
-                    {% for practice in practices %}
-                        <li><a class="text-red-75" href="{% url 'practice-details' practice.id %}"> {{practice.title}} </a></li>
-                    {% empty %}
-                        <li>Aucun exercice à proposer</li>
-                    {% endfor %}
-                </ul>
-                
+            <div class="col-sm-12 offset-sm-2 row pt-1 align-self-baseline mb-5">
+                <form id="search-home" action=""  method="get" accept-charset="utf-8">
+                    <div class="form-row align-items-center">
+                      <div class="col-auto mb-2">
+                        <label class="sr-only" for="inlineFormInput">Catégorie</label>
+                        <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Choisir une catégorie" name="query">
+                            <datalist id="datalistOptions">
+                                <option value="San Francisco">
+                                <option value="New York">
+                                <option value="Seattle">
+                                <option value="Los Angeles">
+                                <option value="Chicago">
+                            </datalist>
+                      </div>
+                      <div class="col-auto">
+                        <button type="submit" class="btn btn-primary mb-2" id="main-form-button">Rechercher</button>
+                      </div>
+                    </div>
+                </form>
+
+
+            </div>
+            <div class="col-sm-12 row align-items-center align-self-baseline text-left">
+                {% for practice in practices %}
+                    <a class="text-red-75" href="{% url 'practice-details' practice.id %}">
+                        <div class="card col-sm-10 offset-sm-1 col-lg-5  mt-2" style="width: 18rem;">
+                            <div class="card-body">
+                                <div class="mt-2">
+                                    <h5 class="card-title">{{practice.title}}</h5>
+                                </div>
+                                <div class="mt-2">
+                                    <h5>Catégorie : {{practice.category.title}}</h5>
+                                </div>
+                                <p class="card-text text-grey-75">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="#" class="card-link" title="Mettre à jour la fiche">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <a href="#" class="card-link" title="ajouter à une scéance">
+                                    <i class="fas fa-folder-plus"></i>
+                                </a>
+                                
+                            </div>
+                        </div>
+                    </a>
+                {% empty %}
+                    Aucun exercice à proposer
+                {% endfor %}
+
             </div>
 
         </div>
