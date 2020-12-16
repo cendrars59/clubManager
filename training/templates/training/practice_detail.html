@@ -13,10 +13,14 @@
                 </h2>
             </div>
             <div class="col-sm-12 align-self-baseline div-description">
+                <div class="pb-3">
+                    <a href="{% url 'practice-update' practice.id %}" class="card-link" title="Mettre à jour la fiche">
+                        <i class="fas fa-edit"></i>
+                    </a>
+                </div>
+                <h3 class="text-red-75 pb-3">Catégorie {{object.category}}</h3>
                 <h3 class="text-red-75">Description</h3>
                 <p>{{object.description | safe }}</p>
-                <h3 class="text-red-75">Materiel</h3>
-                <p>{{object.material}}</p>
             </div>
         </div>
     </div>

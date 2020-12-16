@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load bootstrap %}
+
 
 
 <!-- Masthead-->
@@ -13,29 +15,22 @@
                 </h2>
             </div>
             <div class="col-sm-12 offset-sm-2 row pt-1 align-self-baseline mb-5">
-                <form id="search-home" action=""  method="get" accept-charset="utf-8">
-                    <div class="form-row align-items-center">
-                      <div class="col-auto mb-2">
-                        <label class="sr-only" for="inlineFormInput">Catégorie</label>
-                        <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Choisir une catégorie" name="query">
-                            <datalist id="datalistOptions">
-                                <option value="San Francisco">
-                                <option value="New York">
-                                <option value="Seattle">
-                                <option value="Los Angeles">
-                                <option value="Chicago">
-                            </datalist>
-                      </div>
-                      <div class="col-auto">
-                        <button type="submit" class="btn btn-primary mb-2" id="main-form-button">Rechercher</button>
-                      </div>
-                    </div>
-                </form>
-
-
+                <div class="col-sm-8 align-items-center align-self-baseline text-left">
+                    <form id="search-home" method="get" accept-charset="utf-8">
+                        {{filter.form|bootstrap}}
+                        <button type="submit" class="btn btn-primary" id="main-form-button">
+                            <span class="glyphicon glyphicon-search"></span> Rechercher
+                        </button>
+                    </form>
+                </div>
+                <div class="col-sm-1 pt-2 align-items-center align-self-baseline text-left">
+                    <a href="{% url 'practice-new' %}">
+                        <button class="btn btn-primary" id="add-practice">Ajouter exercice</button>
+                    </a>
+                </div>
             </div>
             <div class="col-sm-12 row align-items-center align-self-baseline text-left">
-                {% for practice in practices %}
+                {% for practice in filter.qs %}
                     <a class="text-red-75" href="{% url 'practice-details' practice.id %}">
                         <div class="card col-sm-10 offset-sm-1 col-lg-5  mt-2" style="width: 18rem;">
                             <div class="card-body">
@@ -45,8 +40,8 @@
                                 <div class="mt-2">
                                     <h5>Catégorie : {{practice.category.title}}</h5>
                                 </div>
-                                <p class="card-text text-grey-75">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="card-link" title="Mettre à jour la fiche">
+                                <p class="card-text text-grey-75">{{practice.description|slice:":30"|safe}}</p>
+                                <a href="{% url 'practice-update' practice.id %}" class="card-link" title="Mettre à jour la fiche">
                                     <i class="fas fa-edit"></i>
                                 </a>
                                 <a href="#" class="card-link" title="ajouter à une scéance">

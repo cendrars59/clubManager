@@ -42,6 +42,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'ckeditor',
     'ckeditor_uploader',  # Application to upload when using ckeditor
+    'django_filters',  # Application used to manage the search queries accross the application
+    'bootstrapform',  # In order to manage the search fields layout
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [

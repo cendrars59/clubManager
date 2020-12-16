@@ -10185,5 +10185,8 @@ header.masthead h1 {
 }
 
 .div-description {
-  height: 30vh;
+  height: 70vh;
+  min-height: 70vh;
+  border-style: solid;
+  border-color: red;
 }
