@@ -3,7 +3,8 @@ from django.conf.urls.static import static
 from django.urls import path
 
 from . import views
-from .views import PracticeCreateView, PracticeDetailView, PracticesListView, PracticeUpdateView
+from .views import (PracticeCreateView, PracticeDetailView, PracticesListView,
+                    PracticeUpdateView)
 
 urlpatterns = [
     path("", views.sessions, name="sessions"),

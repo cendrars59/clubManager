@@ -1,5 +1,6 @@
 import django_filters
-from .models import Practice, Category
+
+from .models import Category, Practice
 
 
 class PracticeFilter(django_filters.FilterSet):

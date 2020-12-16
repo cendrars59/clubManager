@@ -3,9 +3,8 @@ from django.db.models.query import QuerySet
 from django.shortcuts import render
 from django.views.generic import CreateView, DetailView, ListView, UpdateView
 
-from .models import Practice
-
 from .filters import PracticeFilter
+from .models import Practice
 
 
 def sessions(request):

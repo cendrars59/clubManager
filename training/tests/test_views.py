@@ -39,5 +39,5 @@ class PracticeViewTests(TestCase):
     def test_practice_detailed_view(self):
 
         response = self.client.get(self.practice.get_absolute_url())
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 302)
         self.assertTemplateUsed(response, 'training/practice_detail.html')
