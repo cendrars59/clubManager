@@ -10151,6 +10151,10 @@ header.masthead h1 {
   color: rgba(255, 0, 0, 0.75);
 }
 
+.text-grey-75 {
+  color: rgba(129, 129, 129, 0.75);
+}
+
 .border-red {
   border: solid 0.3em rgba(255, 0, 0, 0.7);
 }

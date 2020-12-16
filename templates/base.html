@@ -40,7 +40,7 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto my-2 my-lg-0">
                     {% if user.is_authenticated %}
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#">Ateliers</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'pratices' %}">Ateliers</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Scéance</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Plannifier</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Effectifs</a></li>
