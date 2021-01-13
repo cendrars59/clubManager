@@ -3,7 +3,7 @@ from django.db import models
 from django.test import TestCase
 from django.utils import timezone
 
-from training.models import Practice
+from training.models import Category, Practice
 
 
 class PracticeModelTests(TestCase):
@@ -27,3 +27,26 @@ class PracticeModelTests(TestCase):
         self.assertEqual(f'{self.practice.title}', 'Test Model Title')
         self.assertEqual(f'{self.practice.author}', 'elvis')
         self.assertEqual(f'{self.practice.description}', 'description model')
+
+
+class CategoryModelTests(TestCase):
+
+    def setUp(self):
+
+        self.user = User.objects.create(
+            username='elvis',
+            email='elvis@isnotdead.com'
+        )
+
+        self.category = Category.objects.create(
+            title='Test Model Category Title',
+            author=self.user,
+            description='description category model'
+
+        )
+
+    def test_category_listing(self):
+
+        self.assertEqual(f'{self.category.title}', 'Test Model Category Title')
+        self.assertEqual(f'{self.category.author}', 'elvis')
+        self.assertEqual(f'{self.category.description}', 'description category model')

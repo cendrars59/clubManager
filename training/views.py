@@ -7,18 +7,7 @@ from .filters import PracticeFilter
 from .models import Practice
 
 
-def sessions(request):
-    return render(request, 'training/sessions-list.html')
-
-
-# def pratices(request):
-#    context = {
-#        'practices': Practice.objects.all()
-#    }
-#    return render(request, 'training/practices-list.html', context)
-
-
-class PracticesListView(ListView):
+class PracticesListView(LoginRequiredMixin, ListView):
     model = Practice
     template_name = 'training/practice_list.html'  # Instead of <app>/<model>_<viewtype>.html
     context_object_name = 'practices'  # Instead of using standard name

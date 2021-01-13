@@ -7,7 +7,7 @@ from .views import (PracticeCreateView, PracticeDetailView, PracticesListView,
                     PracticeUpdateView)
 
 urlpatterns = [
-    path("", views.sessions, name="sessions"),
+    #path("", views.sessions, name="sessions"),
     path("practices/", PracticesListView.as_view(), name="pratices"),
     path("practices/practice/<int:pk>", PracticeDetailView.as_view(), name="practice-details"),
     path("practices/practice/new/", PracticeCreateView.as_view(), name="practice-new"),

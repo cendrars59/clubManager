@@ -28,16 +28,38 @@ class PracticeViewTests(TestCase):
     def test_practices_view(self):
 
         response = self.client.get(reverse('pratices'))
+        self.assertEqual(response.status_code, 302)
+
+    def test_not_logged_user_cannt_see_page_practices(self):
+        response = self.client.get(reverse("pratices"))
+        self.assertRedirects(response, "/connecter/?next=/training/practices/")
+
+    def test_logged_user_can_see_page_practices(self):
+        user = User.objects.create_user("Juliana," "juliana@dev.io", "some_pass")
+        self.client.force_login(user=user)
+        response = self.client.get(reverse("pratices"))
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'training/practice_list.html')
 
     def test_practice_new_view(self):
 
         response = self.client.get(reverse('practice-new'))
         self.assertEqual(response.status_code, 302)
 
+    def test_not_logged_user_cannt_see_page_practice_new(self):
+        response = self.client.get(reverse("practice-new"))
+        self.assertRedirects(response, "/connecter/?next=/training/practices/practice/new/")
+
+    def test_logged_user_can_see_page_practice_new(self):
+        user = User.objects.create_user("Juliana," "juliana@dev.io", "some_pass")
+        self.client.force_login(user=user)
+        response = self.client.get(reverse("practice-new"))
+        self.assertEqual(response.status_code, 200)
+
     def test_practice_detailed_view(self):
 
         response = self.client.get(self.practice.get_absolute_url())
         self.assertEqual(response.status_code, 302)
-        self.assertTemplateUsed(response, 'training/practice_detail.html')
+
+    def test_not_logged_user_cannt_see_page_practice_detail(self):
+        response = self.client.get(reverse("practice-details", args=[1988]))
+        self.assertRedirects(response, "/connecter/?next=/training/practices/practice/1988")
