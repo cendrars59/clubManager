@@ -28,13 +28,11 @@ urlpatterns = [
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('', include('pages.urls')),
     path('training/', include('training.urls')),
+    path('cart/', include('carts.urls')),
     path('profile/', users_views.profile, name='profile'),
     path('enregistrer/', users_views.register, name='register'),
     path('connecter/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
-    path('draft/', carts_views.cart_home, name='draft_cart'),
-
-
-
+    path('quitter/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
 ]
 
 if settings.DEBUG:

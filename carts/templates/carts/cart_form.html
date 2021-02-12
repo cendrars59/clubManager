@@ -9,18 +9,11 @@
         <div class="row mt-3 align-items-center justify-content-center ">
             <div class="col-sm-12 pt-1 align-self-baseline">
                 <h2 class="text-red-75 font-weight-light mb-2 text-center" id="title-list-practices">
-                    {{object.title}}
+                    update
                 </h2>
             </div>
             <div class="col-sm-12 align-self-baseline div-description">
-                <div class="pb-3">
-                    <a href="{% url 'practice-update' practice.id %}" class="card-link" title="Mettre à jour la fiche">
-                        <i class="fas fa-edit"></i>
-                    </a>
-                </div>
-                <h3 class="text-red-75 pb-3">Catégorie {{object.category}}</h3>
-                <h3 class="text-red-75">Description</h3>
-                <section style="overflow: auto;height:50vh">{{object.description | safe }}</section>
+
             </div>
         </div>
     </div>

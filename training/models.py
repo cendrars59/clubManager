@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.urls import reverse
 from django.utils import timezone
+from django.db.models.signals import pre_save, post_save
 
 # Create your models here.
 
@@ -28,9 +29,10 @@ class Practice(models.Model):
     title = models.CharField(verbose_name='Titre', max_length=255)
     description = RichTextUploadingField(verbose_name='Description', blank=True, null=True)
     version = models.IntegerField(default=1)
-    active = models.BooleanField(default=False)
+    active = models.BooleanField(default=True)
     date_posted = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
+    duration_in_minutes = models.IntegerField(default=10)
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
 
     class Meta:
